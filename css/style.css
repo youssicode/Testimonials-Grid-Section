@@ -6,36 +6,39 @@
 
 body {
   background-color: hsl(210, 46%, 95%);
+  /* The body takes the full Viewport */
   width: 100vw;
   height: 100vh;
+  /* -------------------------------*/
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 13px;
   position: relative;
 }
 .container {
-  width: 1079px;
-  height: 623px;
+  width: 1084px;
+  height: 563px;
+  /* Centering the container Horizontally & Vertically */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* Laying out the container as a Grid */
   display: grid;
   grid: repeat(2, 1fr) / repeat(4, 1fr);
   grid-template-areas:
     "card1 card1 card2 card5"
     "card3 card4 card4 card5";
-  gap: 20px;
+  gap: 25px;
 }
 .card {
-  padding: 33px;
+  padding: 26px 31px;
   border-radius: 10px;
-}
-.card-head {
 }
 .card1 {
   grid-area: card1;
-  background-color: hsl(263, 55%, 52%);
   color: white;
+  background: url(../images/bg-pattern-quotation.svg) no-repeat 80% 0;
+  background-color: hsl(263, 55%, 52%);
 }
 .card2 {
   grid-area: card2;
@@ -62,6 +65,7 @@ body {
 .card5 h2 {
   color: hsl(217, 19%, 35%);
 }
+/* styling the profile's photos */
 .card-head img {
   border-radius: 50%;
   width: 30px;
@@ -69,13 +73,14 @@ body {
   border: 2px solid rgb(178, 135, 248);
   margin-right: 20px;
 }
+/* Lay out the profile's photo and the name */
 .card-head {
   display: flex;
 }
 h2 {
-  margin: 22px auto;
+  margin: 15px auto;
 }
-h3 {
+.name {
   font-weight: 500;
 }
 .verified {
@@ -84,7 +89,20 @@ h3 {
 
 blockquote {
   opacity: 70%;
-  line-height: 1.5;
+  line-height: 1.4;
 }
+/* Layout for devices with screen's width less then 375px */
 @media screen and (max-width: 375px) {
+  .container {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: initial;
+    transform: initial;
+    padding: 25px 0;
+  }
+  .card {
+    width: 85%;
+    margin: 25px auto;
+  }
 }
